@@ -37,7 +37,7 @@ export interface PredictionResult {
 }
 
 // Use relative URL for proxy - Vite will forward to backend server
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "";
 export default function App() {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [predictionResult, setPredictionResult] =
@@ -63,7 +63,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_URL}/predict`, {
+      const response = await fetch('/predict', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
