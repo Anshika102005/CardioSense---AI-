@@ -37,11 +37,10 @@ export interface PredictionResult {
 }
 
 // Use relative URL for proxy - Vite will forward to backend server
-const API_URL = "";
+
 export default function App() {
   const [userData, setUserData] = useState<UserData | null>(null);
-  const [predictionResult, setPredictionResult] =
-    useState<PredictionResult | null>(null);
+  const [predictionResult, setPredictionResult] = useState<PredictionResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -58,12 +57,14 @@ export default function App() {
     }, 100);
   };
 
+  const API_URL = "https://cardiosense-ai-2.onrender.com";
+
   const handleMedicalSubmit = async (data: MedicalData) => {
     setError(null);
     setLoading(true);
 
     try {
-      const response = await fetch('/predict', {
+      const response = await fetch(`${API_URL}/predict`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

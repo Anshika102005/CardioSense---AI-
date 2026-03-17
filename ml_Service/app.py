@@ -3,7 +3,6 @@ from flask_cors import CORS
 import joblib
 import pandas as pd
 import os
-
 app = Flask(__name__)
 CORS(app)
 

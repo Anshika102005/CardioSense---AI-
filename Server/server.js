@@ -43,8 +43,7 @@ db.serialize(() => {
         }
     });
 });
-
-const ML_API_URL = "http://127.0.0.1:8000/predict";
+const ML_API_URL = "https://cardiosense-ml.onrender.com/predict";
 const ML_API_TIMEOUT = 30000; // 30 seconds timeout
 
 // Health check for ML API
