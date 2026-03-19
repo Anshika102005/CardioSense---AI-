@@ -50,7 +50,7 @@ const ML_API_TIMEOUT = 30000; // 30 seconds timeout
 async function checkMLApiHealth() {
     try {
         const response = await axios.get(
-            "http://127.0.0.1:8000/health",
+            axios.get("https://cardiosense-ml.onrender.com/health"),
             { timeout: ML_API_TIMEOUT }
         );
 
