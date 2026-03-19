@@ -78,13 +78,13 @@ export default function App() {
 
       const result = await response.json();
       console.log("ML Response:", result);
-
-      if (result.error) {
-        throw new Error(result.error);
+      // ✅ Safe check
+      if (!result || result.error) {
+        throw new Error(result?.error || "Invalid response from server");
       }
 
       // SAFE probability handling
-      const probability = result.probability ?? 0;
+      const probability = result.probability || 0;
       const riskPercentage = Math.round(probability * 100);
 
       let riskLevel: "Low" | "Medium" | "High";
